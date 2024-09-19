@@ -1,18 +1,18 @@
 require("dotenv").config();
 
-const config = require("../config.json");
+const config = require("./config.json");
 const mongoose = require("mongoose");
 
 mongoose.connect(config.connectionString);
-const User = require("../models/user.model");
-const Note = require("../models/note.model");
+const User = require("./models/user.model");
+const Note = require("./models/note.model");
 
 const express = require("express");
 const cors = require("cors");
 const app = express();
 
 const jwt = require("jsonwebtoken");
-const {authenticateToken} = require("../utilities");
+const {authenticateToken} = require("./utilities");
 
 
 app.use(express.json());
@@ -348,6 +348,9 @@ app.get("/search-note/",authenticateToken , async (req,res) =>{
     });
  }
 })
-app.listen(process.env.PORT || 4000);
+app.listen(process.env.PORT || 4000,()=> {
+    console.log("connection succ")
+});
+
 
 module.exports = app;
