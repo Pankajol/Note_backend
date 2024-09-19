@@ -17,7 +17,7 @@ const {authenticateToken} = require("./utilities");
 
 app.use(express.json());
 const corsOption = {
-    origin : ['https://notes-app-orpin-chi.vercel.app','http://localhost:5173'],
+    origin : ['https://notesapp2099.vercel.app','http://localhost:5173'],
     useSuccessStatus : 200,
 }
 app.use(
