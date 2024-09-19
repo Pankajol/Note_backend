@@ -16,11 +16,12 @@ const {authenticateToken} = require("./utilities");
 
 
 app.use(express.json());
-
+const corsOption = {
+    origin : ['https://notes-app-orpin-chi.vercel.app'],
+    useSuccessStatus : 200,
+}
 app.use(
-    cors({
-        origin:['https://notes-app-orpin-chi.vercel.app'],
-    })
+   cors(corsOption)
 );
 
 app.get("/",(req,res) =>{
