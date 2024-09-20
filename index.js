@@ -30,7 +30,7 @@ app.use(express.json());
 
 
 const corsOptions = {
-    origin: 'https://notesapp2099.vercel.app',
+    origin: '*',
     optionsSuccessStatus: 200
   };
   
