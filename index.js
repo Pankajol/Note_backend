@@ -17,17 +17,24 @@ const {authenticateToken} = require("./utilities");
 
 app.use(express.json());
 
-const corsOptions = {
-    origin: ['https://notesapp2099.vercel.app', 'http://localhost:5173'],
-    optionsSuccessStatus: 200,  // Use the correct option
-    credentials: true, 
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: ['Content-Type', 'Authorization'],
-};
-app.use(
-   cors(corsOptions)
-);
+// const corsOptions = {
+//     origin: ['https://notesapp2099.vercel.app', 'http://localhost:5173'],
+//     optionsSuccessStatus: 200,  // Use the correct option
+//     credentials: true, 
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+// };
+// app.use(
+//    cors(corsOptions)
+// );
 
+
+const corsOptions = {
+    origin: 'https://notesapp2099.vercel.app',
+    optionsSuccessStatus: 200
+  };
+  
+  app.use(cors(corsOptions));
 app.get("/",(req,res) =>{
     res.json({
         data:"hello"
